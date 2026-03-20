@@ -7,6 +7,31 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Project card link styles — add to styles.css if preferred */
+    a.project-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    a.project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0, 255, 136, 0.15);
+    }
+    .project-link-hint {
+      margin-top: 14px;
+      font-size: 0.78rem;
+      font-family: 'Share Tech Mono', monospace;
+      color: #00ff88;
+      opacity: 0.7;
+      letter-spacing: 0.05em;
+      transition: opacity 0.2s ease;
+    }
+    a.project-card:hover .project-link-hint {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
 
@@ -48,7 +73,6 @@
             <div class="corner tr"></div>
             <div class="corner bl"></div>
             <div class="corner br"></div>
-            <!-- Replace the src below with your photo path when ready -->
             <img src="head_shot.jpg" alt="Christopher Cortes-Sanchez" />
             <div class="status-dot">OPEN TO WORK</div>
           </div>
@@ -72,14 +96,10 @@
           <div class="exp-date">July 2023 – Present</div>
         </div>
         <ul class="exp-bullets">
-          <li>Tutored 20+ undergraduate students across multiple semesters in Python programming, Precalculus, and Calculus,
-reinforcing core problem-solving and analytical skills.</li>
-          <li>Provided live debugging and walkthroughs of Python code, emphasizing logical decomposition, testing, and readable
-coding practices.</li>
-          <li>Designed and facilitated 50+ practice exercises spanning programming fundamentals and mathematical concepts to
-strengthen student comprehension</li>
-          <li>Delivered individualized academic support resulting in a 100% course pass rate among tutored students across multiple
-semesters.</li>
+          <li>Tutored 20+ undergraduate students across multiple semesters in Python programming, Precalculus, and Calculus, reinforcing core problem-solving and analytical skills.</li>
+          <li>Diagnosed and explained complex technical problems in student code, translating root causes into clear, structured walkthroughs — reinforcing the same communication skills applied in security incident documentation and vulnerability reporting.</li>
+          <li>Designed and facilitated 50+ practice exercises spanning programming fundamentals and mathematical concepts to strengthen student comprehension.</li>
+          <li>Delivered individualized academic support resulting in a 100% course pass rate among tutored students across multiple semesters.</li>
         </ul>
       </div>
 
@@ -107,7 +127,7 @@ semesters.</li>
 
       <div class="projects-grid">
 
-        <div class="project-card">
+        <a class="project-card" href="https://github.com/ChrisCortesSanchez/SafeBuyr" target="_blank" rel="noopener noreferrer">
           <div class="project-icon">🛡️</div>
           <div class="project-name">SafeBuyr – E-commerce Security Platform</div>
           <div class="project-stack">Python · Flask · Docker · GitHub Actions</div>
@@ -117,9 +137,22 @@ semesters.</li>
             <li>Designed side-by-side vulnerable and remediated code paths, achieving a 95% reduction in application risk score (37→2/100).</li>
             <li>Hardened with bcrypt, parameterized queries, CSRF protection, output encoding, security headers, and automated CI/CD validation.</li>
           </ul>
-        </div>
+          <div class="project-link-hint">View on GitHub →</div>
+        </a>
 
-        <div class="project-card">
+        <a class="project-card" href="https://github.com/ChrisCortesSanchez/AWS-CSPM" target="_blank" rel="noopener noreferrer">
+          <div class="project-icon">☁️</div>
+          <div class="project-name">AWS Cloud Security Posture Management (CSPM) Tool</div>
+          <div class="project-stack">Python · AWS · boto3 · GitHub Actions</div>
+          <ul class="project-bullets">
+            <li>Engineered a modular Python CLI tool scanning live AWS accounts across 5 services (S3, IAM, EC2, CloudTrail, RDS), executing 26 checks mapped to CIS AWS Benchmark v1.5.0.</li>
+            <li>Deployed against a live EC2 instance, surfacing 4 real misconfigurations including disabled CloudTrail logging and a non-compliant IAM password policy, with a weighted CRITICAL/HIGH/MEDIUM/LOW scoring system producing a 0–100 security score.</li>
+            <li>Achieved 100% CI pass rate across 36 moto-mocked unit tests via GitHub Actions, validating all scanner logic without requiring live AWS credentials.</li>
+          </ul>
+          <div class="project-link-hint">View on GitHub →</div>
+        </a>
+
+        <a class="project-card" href="https://github.com/ChrisCortesSanchez/Tpot" target="_blank" rel="noopener noreferrer">
           <div class="project-icon">🍯</div>
           <div class="project-name">T-Pot Honeypot Deployment</div>
           <div class="project-stack">Python · Bash · Kibana · Elasticsearch · Suricata</div>
@@ -128,18 +161,8 @@ semesters.</li>
             <li>Analyzed Kibana dashboards to identify top attack sources, exploited ports, and common payload signatures.</li>
             <li>Logged 1,200+ attacks within 24 hours across Cowrie, Dionaea, and ElasticPot services.</li>
           </ul>
-        </div>
-
-        <div class="project-card">
-          <div class="project-icon">🔐</div>
-          <div class="project-name">Quantum-Resistant Legal Document Protection</div>
-          <div class="project-stack">Python · Open Quantum Safe · Cryptography</div>
-          <ul class="project-bullets">
-            <li>Designed a hybrid post-quantum cryptographic framework to protect sensitive legal documents.</li>
-            <li>Implemented ML-KEM-768 encryption, digital signatures, and integrity checks for secure data exchange.</li>
-            <li>Led a 5-member team with Git-based workflows and technical reviews for secure prototype delivery.</li>
-          </ul>
-        </div>
+          <div class="project-link-hint">View on GitHub →</div>
+        </a>
 
       </div>
     </div>
@@ -153,7 +176,7 @@ semesters.</li>
 
       <div class="skills-grid">
         <div class="skill-group">
-          <h3>Languages</h3>
+          <h3>Languages &amp; Scripting</h3>
           <div class="skill-tags">
             <span class="tag">Python</span>
             <span class="tag">Bash</span>
@@ -182,6 +205,7 @@ semesters.</li>
             <span class="tag">Flask</span>
             <span class="tag">React</span>
             <span class="tag">Docker</span>
+            <span class="tag">AWS</span>
             <span class="tag">MongoDB</span>
             <span class="tag">GitHub Actions</span>
           </div>
@@ -194,6 +218,7 @@ semesters.</li>
             <span class="tag red">Binary Exploitation</span>
             <span class="tag red">Web Vuln Assessment</span>
             <span class="tag red">Threat Intelligence</span>
+            <span class="tag red">Cloud Security</span>
             <span class="tag red">CTF</span>
           </div>
         </div>
@@ -215,7 +240,6 @@ semesters.</li>
             <div class="cert-issuer">CompTIA · In Progress</div>
           </div>
         </div>
-        <!-- Add more certs here -->
         <div class="cert-card">
           <div class="cert-badge">🎓</div>
           <div>
@@ -283,8 +307,8 @@ semesters.</li>
 
   <!-- ── FOOTER ── -->
   <footer>
-    <p>All rights reserved. This website is for educational use only. Contet may not be reproduced or distributed for commercial purposes.</p>
-    <a href="https://example.com">Chris's Portfolio</a> © 2026 by <a href="https://example.com">Christopher Cortes-Sanchez</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+    <p>All rights reserved. This website is for educational use only. Content may not be reproduced or distributed for commercial purposes.</p>
+    <a href="https://chriscortessanchez.github.io/">Chris's Portfolio</a> © 2026 by <a href="https://chriscortessanchez.github.io/">Christopher Cortes-Sanchez</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
   </footer>
 
 </body>
