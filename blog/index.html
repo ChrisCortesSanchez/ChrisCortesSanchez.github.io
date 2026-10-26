@@ -1,0 +1,35 @@
+---
+layout: base
+title: Writeups
+summary: Project writeups and CTF walkthroughs by Christopher Cortes-Sanchez.
+---
+<header class="blog-header">
+  <p class="section-label"><span class="t-prompt">chris@sec:~$</span> ls writeups/</p>
+  <h1 class="section-title">Writeups</h1>
+  <p class="blog-intro">How I built my projects and how I solved the CTF challenges: what I tried, what broke, and what worked.</p>
+</header>
+
+{% if site.posts.size > 0 %}
+<div class="post-filters" role="group" aria-label="Filter writeups" hidden>
+  <button type="button" data-filter="all" aria-pressed="true">all</button>
+  <button type="button" data-filter="project" aria-pressed="false">projects</button>
+  <button type="button" data-filter="ctf" aria-pressed="false">ctf</button>
+</div>
+
+<div class="post-grid">
+  {% for post in site.posts %}
+  <a class="post-card glow" href="{{ post.url | relative_url }}" data-category="{{ post.category | default: 'project' | slugify }}">
+    <div class="post-meta">
+      <span class="post-cat {{ post.category | default: 'project' | slugify }}">{% if post.category == 'ctf' %}CTF{% else %}Project{% endif %}</span>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+    </div>
+    <h2 class="post-title">{{ post.title | escape }}</h2>
+    <p class="post-summary">{{ post.summary | default: post.excerpt | strip_html | truncate: 200 }}</p>
+    <span class="post-more">Read writeup →</span>
+  </a>
+  {% endfor %}
+</div>
+<p class="post-empty" data-empty hidden>Nothing in this category yet.</p>
+{% else %}
+<p class="post-empty">No writeups published yet. Check back soon.</p>
+{% endif %}

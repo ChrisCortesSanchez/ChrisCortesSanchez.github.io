@@ -1,0 +1,30 @@
+---
+layout: base
+---
+<article class="post">
+  <header class="post-header">
+    <p class="section-label"><span class="t-prompt">chris@sec:~$</span> cat writeups/{{ page.slug }}.md</p>
+    <div class="post-meta">
+      <span class="post-cat {{ page.category | default: 'project' | slugify }}">{% if page.category == 'ctf' %}CTF walkthrough{% else %}Project writeup{% endif %}</span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+      <span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+    </div>
+    <h1 class="post-heading">{{ page.title | escape }}</h1>
+    {% if page.summary %}<p class="post-lede">{{ page.summary | escape }}</p>{% endif %}
+    {% if page.tags.size > 0 %}
+    <ul class="post-tags">
+      {% for tag in page.tags %}<li>#{{ tag | escape }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <nav class="post-nav" aria-label="More writeups">
+    {% if page.next %}<a href="{{ page.next.url | relative_url }}"><span>← Newer</span>{{ page.next.title | escape }}</a>{% else %}<span></span>{% endif %}
+    {% if page.previous %}<a class="older" href="{{ page.previous.url | relative_url }}"><span>Older →</span>{{ page.previous.title | escape }}</a>{% endif %}
+  </nav>
+  <a class="case-link" href="/blog/">← All writeups</a>
+</article>

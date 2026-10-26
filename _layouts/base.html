@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://mirrors.creativecommons.org; object-src 'none'; base-uri 'self'; form-action 'none'" />
+  <title>{{ page.title | escape }} | Christopher Cortes-Sanchez</title>
+  <meta name="description" content="{{ page.summary | default: site.description | strip_html | escape }}" />
+  <meta name="theme-color" content="#080c10" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ page.url | absolute_url }}" />
+  <meta property="og:title" content="{{ page.title | escape }}" />
+  <meta property="og:description" content="{{ page.summary | default: site.description | strip_html | escape }}" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080c10'/%3E%3Cpath d='M8 10l7 6-7 6' fill='none' stroke='%2300ff87' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17 23h8' stroke='%2300d4ff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/script.js" defer></script>
+</head>
+<body>
+
+  <div class="bg" aria-hidden="true">
+    <div class="bg-aurora a1"></div>
+    <div class="bg-aurora a2"></div>
+    <div class="bg-grid"></div>
+    <canvas id="bg-canvas"></canvas>
+    <div class="bg-spotlight"></div>
+  </div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav aria-label="Primary">
+    <a class="nav-logo" href="/"><span>&gt;_</span> chris@sec</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-links">
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/blog/" aria-current="true">Writeups</a></li>
+      <li><a href="/#experience">Experience</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#background">Background</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="blog-main">
+    <div class="container">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer>
+    <p>All rights reserved. This website is for educational use only. Content may not be reproduced or distributed for commercial purposes.</p>
+    <p>
+      <a href="https://chriscortessanchez.github.io/">Chris's Portfolio</a> © 2026 by
+      <a href="https://chriscortessanchez.github.io/">Christopher Cortes-Sanchez</a> is licensed under
+      <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-ND 4.0</a>
+      <img class="cc-icon" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" /><img class="cc-icon" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" /><img class="cc-icon" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" /><img class="cc-icon" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="" />
+    </p>
+  </footer>
+
+</body>
+</html>
