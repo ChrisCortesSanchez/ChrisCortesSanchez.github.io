@@ -566,6 +566,7 @@
       github: 'https://github.com/ChrisCortesSanchez',
       linkedin: 'https://www.linkedin.com/in/christopher-cortes-sanchez/',
       email: 'mailto:cc7825@nyu.edu',
+      sens: 'https://github.com/ninal1811/project-sens',
       safebuyr: 'https://github.com/ChrisCortesSanchez/SafeBuyr',
       cspm: 'https://github.com/ChrisCortesSanchez/AWS-CSPM',
       honeypot: 'https://github.com/ChrisCortesSanchez/Tpot'
@@ -625,18 +626,28 @@
     }
 
     const projectCmds = {
-      safebuyr: () => project('01', 'SafeBuyr E-commerce Security Platform', 'Python, Flask, Docker, GitHub Actions', [
-        '8-phase automated scanner against a live Flask/Docker app',
-        'found and fixed 6 OWASP Top 10 classes; risk score 37/100 -> 2/100',
-        'every vuln proven exploitable, every fix re-verified',
-        'all 6 checks gate deployment in GitHub Actions'
-      ], 'safebuyr'),
-      cspm: () => project('02', 'AWS CSPM Tool', 'Python, AWS, boto3, GitHub Actions', [
+      sens: () => project('02', 'Project SENS (team capstone, security owner)', 'Python, Flask, MongoDB, React', [
+        'owned auth: 6 endpoints, salted scrypt hashing, 8-char minimum',
+        'Secure, HttpOnly session cookies; CORS limited to 2 origins',
+        'developer-only log viewer behind RBAC, path-traversal filtering, 1,000-line cap',
+        'Jan - May 2026; class has ended, so it is no longer deployed'
+      ], 'sens'),
+      safebuyr: () => {
+        project('01', 'SafeBuyr E-commerce Security Platform', 'Python, Flask, SQLAlchemy, Docker, GitHub Actions', [
+          'vulnerable + hardened apps side by side, 6 OWASP Top 10 classes',
+          'SQLi, stored XSS, IDOR, MD5 hashing, missing CSRF, missing headers',
+          '1,200+ line 8-phase scanner: risk score 32/100 -> 0/100',
+          '7 exploit scripts; 3 regression suites in GitHub Actions'
+        ], 'safebuyr');
+        print(['     now: ', 't-dim'], ['Phase 1, Semgrep SAST', 't-hl'], [' (DevSecOps expansion in progress)', 't-dim']);
+        dim('     next: Gitleaks + Trivy, container hardening, ZAP, SBOM + cosign, kind, Kyverno');
+      },
+      cspm: () => project('03', 'AWS CSPM Tool', 'Python, AWS, boto3, GitHub Actions', [
         '26 CIS Benchmark v1.5.0 controls: IAM, S3, CloudTrail, EC2, password policy',
         'caught 4 real gaps in a live AWS account',
         '36 moto-mocked tests in CI, no credentials in the pipeline'
       ], 'cspm'),
-      honeypot: () => project('03', 'Honeypot Threat Intelligence Pipeline', 'Python, Elasticsearch, DigitalOcean', [
+      honeypot: () => project('04', 'Honeypot Threat Intelligence Pipeline', 'Python, Elasticsearch, DigitalOcean', [
         '193,139 real attack events from 6,713 unique IPs',
         'sensors: Cowrie (SSH), Dionaea (malware), Honeytrap (service emulation)',
         'flagged a Solana credential harvesting op and a Mirai-variant botnet',
@@ -702,7 +713,7 @@
       help() {
         const rows = [
           ['whoami', 'who is this'],
-          ['projects', 'security projects (or: safebuyr, cspm, honeypot)'],
+          ['projects', 'security projects (or: safebuyr, sens, cspm, honeypot)'],
           ['skills', 'tools, languages, platforms'],
           ['experience', 'work history'],
           ['education', 'degree and coursework'],
@@ -711,7 +722,7 @@
           ['blog', 'project writeups and CTF walkthroughs'],
           ['interests', 'off the clock'],
           ['contact', 'how to reach me'],
-          ['open <name>', 'github | linkedin | email | safebuyr | cspm | honeypot'],
+          ['open <name>', 'github | linkedin | email | sens | safebuyr | cspm | honeypot'],
           ['cd <section>', SECTIONS.join(' | ')],
           ['ls, cat', 'look around'],
           ['clear', 'clear the screen']
@@ -730,11 +741,13 @@
       },
       about() {
         say('NYU CS graduate (Security+) who builds Python security automation');
-        say('for apps, cloud, and CI/CD, tested against live systems and real');
-        say('attack data. Seeking Application Security and DevSecOps roles.');
+        say('for apps, cloud, and CI/CD, tested against live systems, and owned');
+        say('authentication on a team web app. Seeking Application Security and');
+        say('DevSecOps Engineer roles.');
       },
       projects() {
         projectCmds.safebuyr(); blank();
+        projectCmds.sens(); blank();
         projectCmds.cspm(); blank();
         projectCmds.honeypot();
       },
@@ -751,12 +764,6 @@
         say('- 100% course pass rate across 20+ students (Python, Precalc, Calculus)');
         say('- turned programming defects into structured root-cause analyses');
         say('- designed 50+ practice exercises for debugging and problem-solving');
-        blank();
-        print(['External Relations Committee', 't-ok'], [' @ SHPE NYU Tandon', 't-hl']);
-        dim('Jan 2026 - May 2026 · Brooklyn, NY');
-        say('- contacted ~15 companies to build the chapter\'s first external relations function');
-        say('- secured Turner Construction for a resume workshop');
-        say('- organized a joint event at Columbia drawing 20-30 members');
       },
       education() {
         print(['NYU Tandon School of Engineering', 't-ok'], [' · May 2026', 't-dim']);
@@ -775,7 +782,7 @@
         blank();
         print(['organizations', 't-hl']);
         say('- NYU Higher Education Opportunity Program (HEOP)');
-        say('- SHPE NYU Tandon, External Relations Committee (Jan - May 2026)');
+        say('- Society of Hispanic Professional Engineers (SHPE), NYU Tandon chapter');
         say('- Cyversity');
         dim('next up: Raíces Cyber, DEF CON NYC');
       },

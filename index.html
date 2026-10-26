@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://mirrors.creativecommons.org; object-src 'none'; base-uri 'self'; form-action 'none'" />
   <title>Christopher Cortes-Sanchez | Application Security &amp; DevSecOps</title>
-  <meta name="description" content="NYU CS graduate (Security+) who builds Python security automation for apps, cloud, and CI/CD, tested against live systems and real attack data." />
+  <meta name="description" content="NYU CS graduate (Security+) who builds Python security automation for apps, cloud, and CI/CD, tested against live systems, and owned authentication on a team web app." />
   <meta name="theme-color" content="#080c10" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://chriscortessanchez.com/" />
   <meta property="og:title" content="Christopher Cortes-Sanchez | Application Security &amp; DevSecOps" />
-  <meta property="og:description" content="Python security automation for apps, cloud, and CI/CD, tested against live systems and real attack data." />
+  <meta property="og:description" content="Python security automation for apps, cloud, and CI/CD, tested against live systems, and authentication owned on a team web app." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080c10'/%3E%3Cpath d='M8 10l7 6-7 6' fill='none' stroke='%2300ff87' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17 23h8' stroke='%2300d4ff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -84,9 +84,9 @@
             </p>
 
             <p class="hero-desc">
-              I build Python security automation for apps, cloud, and CI/CD, and I test it against
-              live systems and real attack data. NYU CS graduate, Security+ certified, looking for
-              Application Security and DevSecOps Engineer roles.
+              I build Python security automation for apps, cloud, and CI/CD, test it against live
+              systems, and owned authentication on a team web app. NYU CS graduate, Security+
+              certified, looking for Application Security and DevSecOps Engineer roles.
             </p>
 
             <div class="hero-cta">
@@ -139,7 +139,7 @@
             <div class="stat-label">real attack events analyzed</div>
           </li>
           <li class="stat reveal">
-            <div class="stat-num"><span class="stat-from">37</span><span class="stat-arrow">→</span><span data-count="2" data-from="37">2</span></div>
+            <div class="stat-num"><span class="stat-from">32</span><span class="stat-arrow">→</span><span data-count="0" data-from="32">0</span></div>
             <div class="stat-label">app risk score, out of 100</div>
           </li>
           <li class="stat reveal">
@@ -163,49 +163,115 @@
         <div class="proj-carousel">
           <div class="proj-grid" id="proj-grid">
 
-            <!-- SafeBuyr -->
-            <article class="proj-card glow reveal">
+            <!-- SafeBuyr (featured: active DevSecOps expansion) -->
+            <article class="proj-card proj-featured glow reveal">
               <div class="proj-tab">
                 <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
                 <span class="proj-file">~/SafeBuyr</span>
+                <span class="proj-badge">active · phase 1</span>
                 <span class="proj-no">01</span>
               </div>
-              <div class="proj-readout" data-visual="safebuyr" aria-hidden="true">
-                <div class="viz-title">risk score</div>
-                <div class="risk">
-                  <div class="risk-row">
-                    <span class="risk-key">before</span>
-                    <div class="risk-track"><div class="risk-fill before"></div></div>
-                    <span class="risk-val bad">37</span>
+              <div class="proj-split">
+                <div class="proj-readout" data-visual="safebuyr" aria-hidden="true">
+                  <div class="viz-title">risk score</div>
+                  <div class="risk">
+                    <div class="risk-row">
+                      <span class="risk-key">before</span>
+                      <div class="risk-track"><div class="risk-fill before"></div></div>
+                      <span class="risk-val bad">32</span>
+                    </div>
+                    <div class="risk-row">
+                      <span class="risk-key">after</span>
+                      <div class="risk-track"><div class="risk-fill after"></div></div>
+                      <span class="risk-val good">0</span>
+                    </div>
                   </div>
-                  <div class="risk-row">
-                    <span class="risk-key">after</span>
-                    <div class="risk-track"><div class="risk-fill after"></div></div>
-                    <span class="risk-val good">2</span>
+                  <ul class="vulns">
+                    <li class="fixed">SQLi</li>
+                    <li class="fixed">Stored XSS</li>
+                    <li class="fixed">IDOR</li>
+                    <li class="fixed">MD5 hashing</li>
+                    <li class="fixed">CSRF</li>
+                    <li class="fixed">Headers</li>
+                  </ul>
+                  <div class="viz-legend">
+                    <span><b class="k-green">6</b> OWASP classes fixed</span>
+                    <span><b class="k-cyan">9</b> planted flaws in the ground-truth inventory</span>
                   </div>
                 </div>
-                <ul class="vulns">
-                  <li class="fixed">SQLi</li>
-                  <li class="fixed">XSS</li>
-                  <li class="fixed">CSRF</li>
-                  <li class="fixed">Sessions</li>
-                  <li class="fixed">Input</li>
-                  <li class="fixed">Passwords</li>
+                <div class="proj-main">
+                  <div class="proj-body">
+                    <div class="proj-meta">Built Dec 2025 – Jan 2026 · DevSecOps expansion underway</div>
+                    <h3 class="proj-name">SafeBuyr E-commerce Security Platform</h3>
+                    <ul class="proj-stack"><li>Python</li><li>Flask</li><li>SQLAlchemy</li><li>Docker</li><li>GitHub Actions</li></ul>
+                    <ul class="case-bullets">
+                      <li>Built a deliberately vulnerable Flask e-commerce app reproducing 6 OWASP Top 10 vulnerabilities (SQL injection, stored XSS, IDOR, unsalted MD5 password hashing, missing CSRF protection, missing security headers), each paired with a hardened side-by-side version.</li>
+                      <li>Wrote a 1,200+ line, 8-phase vulnerability scanner with CVSS-weighted scoring that rates the vulnerable app 32/100 (high risk) and the hardened app 0/100, plus 7 exploit scripts, including a full recon-to-exploit chain, that prove each flaw before it is fixed.</li>
+                      <li>Fixed each flaw with bcrypt (cost factor 12), parameterized SQLAlchemy queries, automatic output encoding, per-endpoint authorization, Flask-WTF CSRF tokens, and security headers, verified by three regression suites in GitHub Actions on every push and pull request.</li>
+                    </ul>
+                  </div>
+                  <div class="proj-actions">
+                    <button class="btn-clone" type="button" data-clone="https://github.com/ChrisCortesSanchez/SafeBuyr.git" hidden>$ git clone</button>
+                    <a class="case-link" href="https://github.com/ChrisCortesSanchez/SafeBuyr" target="_blank" rel="noopener noreferrer">View repo →</a>
+                  </div>
+                </div>
+              </div>
+              <div class="roadmap">
+                <div class="roadmap-head">
+                  <span>DevSecOps expansion roadmap</span>
+                  <span class="roadmap-now">now: Phase 1, Semgrep SAST</span>
+                </div>
+                <ol class="phases">
+                  <li class="done"><b>P0</b>Baseline</li>
+                  <li class="active"><b>P1</b>Semgrep</li>
+                  <li><b>P2</b>Gitleaks + Trivy</li>
+                  <li><b>P3</b>Container hardening</li>
+                  <li><b>P4</b>OWASP ZAP</li>
+                  <li><b>P5</b>SBOM + cosign</li>
+                  <li><b>P6</b>Kubernetes (kind)</li>
+                  <li><b>P7</b>Kyverno</li>
+                  <li><b>P8</b>Threat model</li>
+                </ol>
+              </div>
+            </article>
+
+            <!-- Project SENS (team capstone) -->
+            <article class="proj-card glow reveal">
+              <div class="proj-tab">
+                <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                <span class="proj-file">~/project-sens</span>
+                <span class="proj-no">02</span>
+              </div>
+              <div class="proj-readout auth" aria-hidden="true">
+                <div class="viz-title">auth surface</div>
+                <ul class="routes">
+                  <li><b class="m-post">POST</b>/auth/login</li>
+                  <li><b class="m-post">POST</b>/auth/logout</li>
+                  <li><b class="m-get">GET</b>/auth/session</li>
+                  <li><b class="m-get">GET</b>/auth/user</li>
+                  <li><b class="m-post">POST</b>/auth/register</li>
+                  <li><b class="m-put">PUT</b>/auth/password</li>
+                  <li class="dev"><b class="m-get">GET</b>/dev/logs<span>developer role only</span></li>
                 </ul>
+                <div class="viz-legend">
+                  <span><b class="k-green">scrypt</b> salted hashes</span>
+                  <span><b class="k-cyan">2</b> CORS origins</span>
+                  <span><b class="k-amber">1,000</b>-line log cap</span>
+                </div>
               </div>
               <div class="proj-body">
-                <div class="proj-meta">Dec 2025 – Jan 2026</div>
-                <h3 class="proj-name">SafeBuyr E-commerce Security Platform</h3>
-                <ul class="proj-stack"><li>Python</li><li>Flask</li><li>Docker</li><li>GitHub Actions</li></ul>
+                <div class="proj-meta">Jan 2026 – May 2026 · team capstone, security owner</div>
+                <h3 class="proj-name">Project SENS</h3>
+                <ul class="proj-stack"><li>Python</li><li>Flask</li><li>MongoDB</li><li>React</li></ul>
                 <ul class="case-bullets">
-                  <li>Built an 8-phase automated security scanner for a live Flask/Docker e-commerce app that identified and fixed 6 OWASP Top 10 vulnerability classes, reducing risk score from 37/100 to 2/100.</li>
-                  <li>Proved each vulnerability was exploitable before fixing it, then verified each fix held, producing an audit trail across SQL injection, XSS, CSRF, session management, input validation, and password storage.</li>
-                  <li>Embedded all 6 checks into GitHub Actions so no deployment passes without clearing every test, enforcing encrypted password storage, SQL injection prevention, and CSRF protection at the CI layer.</li>
+                  <li>Owned authentication for a team-built Flask/React/MongoDB web app: 6 auth endpoints (login, logout, session, registration, password change, current user), salted scrypt password hashing with an 8-character minimum, and Secure, HttpOnly session cookies.</li>
+                  <li>Built a developer-only log viewer behind role-based access control (developer vs. standard user) with path-traversal filtering and a 1,000-line read cap, and restricted CORS to 2 allowed origins.</li>
                 </ul>
               </div>
               <div class="proj-actions">
-                <button class="btn-clone" type="button" data-clone="https://github.com/ChrisCortesSanchez/SafeBuyr.git" hidden>$ git clone</button>
-                <a class="case-link" href="https://github.com/ChrisCortesSanchez/SafeBuyr" target="_blank" rel="noopener noreferrer">View repo →</a>
+                <button class="btn-clone" type="button" data-clone="https://github.com/ninal1811/project-sens.git" hidden>$ git clone</button>
+                <a class="case-link" href="https://github.com/ninal1811/project-sens" target="_blank" rel="noopener noreferrer">Backend repo →</a>
+                <a class="case-link" href="https://github.com/ninal1811/project-sens-frontend" target="_blank" rel="noopener noreferrer">Frontend repo →</a>
               </div>
             </article>
 
@@ -214,7 +280,7 @@
               <div class="proj-tab">
                 <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
                 <span class="proj-file">~/AWS-CSPM</span>
-                <span class="proj-no">02</span>
+                <span class="proj-no">03</span>
               </div>
               <div class="proj-readout" data-visual="cspm" aria-hidden="true">
                 <div class="viz-title">cis benchmark v1.5.0 scan</div>
@@ -249,7 +315,7 @@
               <div class="proj-tab">
                 <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
                 <span class="proj-file">~/Tpot</span>
-                <span class="proj-no">03</span>
+                <span class="proj-no">04</span>
               </div>
               <div class="proj-readout" data-visual="honeypot" aria-hidden="true">
                 <div class="viz-title">capture summary</div>
@@ -323,24 +389,6 @@
                   <li>Designed 50+ practice exercises across Python debugging and mathematical problem-solving, applying iterative feedback to identify and close individual skill gaps.</li>
                 </ul>
                 <div class="xp-tags"><span>Python</span><span>Debugging</span><span>Root-cause analysis</span><span>Technical writing</span><span>Calculus</span></div>
-              </article>
-
-              <article class="xp-card">
-                <div class="xp-head">
-                  <div class="xp-logo" aria-hidden="true">SH</div>
-                  <div>
-                    <div class="xp-date">Jan 2026 – May 2026</div>
-                    <h3 class="xp-org">SHPE NYU Tandon</h3>
-                    <div class="xp-role">External Relations Committee</div>
-                    <div class="xp-loc">Brooklyn, NY</div>
-                  </div>
-                </div>
-                <ul class="exp-bullets">
-                  <li>Contacted about 15 companies to build the chapter's first external relations function.</li>
-                  <li>Secured Turner Construction for a resume workshop for chapter members.</li>
-                  <li>Organized a joint event at Columbia drawing 20–30 members.</li>
-                </ul>
-                <div class="xp-tags"><span>Corporate outreach</span><span>Partnerships</span><span>Event planning</span></div>
               </article>
 
             </div>
@@ -442,7 +490,7 @@
               <div class="edu-label">// organizations</div>
               <ul class="edu-tiles cols-3 orgs">
                 <li>NYU Higher Education Opportunity Program (HEOP)</li>
-                <li>Society of Hispanic Professional Engineers (SHPE)<span>NYU Tandon · External Relations Committee, Jan–May 2026</span></li>
+                <li>Society of Hispanic Professional Engineers (SHPE)<span>NYU Tandon chapter · member</span></li>
                 <li>Cyversity</li>
                 <li class="next">Raíces Cyber<span>getting involved</span></li>
                 <li class="next">DEF CON NYC<span>getting involved</span></li>
