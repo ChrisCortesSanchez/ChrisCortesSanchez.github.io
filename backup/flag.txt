@@ -1,0 +1,3 @@
+flag{r0b0ts_txt_is_a_tr3asure_map}
+
+Bank it in the terminal on the home page: submit <flag>

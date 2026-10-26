@@ -2,7 +2,7 @@
 # are served as-is; only the blog (blog/, _posts/, _layouts/) is generated.
 title: Christopher Cortes-Sanchez
 description: Project writeups and CTF walkthroughs by Christopher Cortes-Sanchez.
-url: https://chriscortessanchez.github.io
+url: https://chriscortessanchez.com
 
 permalink: /blog/:title/
 markdown: kramdown

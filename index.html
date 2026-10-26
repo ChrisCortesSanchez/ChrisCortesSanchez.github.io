@@ -8,7 +8,7 @@
   <meta name="description" content="NYU CS graduate (Security+) who builds Python security automation for apps, cloud, and CI/CD, tested against live systems and real attack data." />
   <meta name="theme-color" content="#080c10" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://chriscortessanchez.github.io/" />
+  <meta property="og:url" content="https://chriscortessanchez.com/" />
   <meta property="og:title" content="Christopher Cortes-Sanchez | Application Security &amp; DevSecOps" />
   <meta property="og:description" content="Python security automation for apps, cloud, and CI/CD, tested against live systems and real attack data." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080c10'/%3E%3Cpath d='M8 10l7 6-7 6' fill='none' stroke='%2300ff87' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17 23h8' stroke='%2300d4ff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
@@ -19,6 +19,11 @@
   <script src="script.js" defer></script>
 </head>
 <body>
+<!--
+  Reading the source? Good instinct.
+  ZmxhZ3t2MWV3X3MwdXJjZV8xc19yM2Nvbn0=
+  Run `ctf` in the terminal on this page to see what else is hidden.
+-->
 
   <!-- ── BACKDROP ── -->
   <div class="bg" aria-hidden="true">
@@ -40,6 +45,7 @@
     </button>
     <ul id="nav-links">
       <li><a href="#projects">Projects</a></li>
+      <li data-needs-posts hidden><a href="/blog/">Writeups</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#background">Background</a></li>
@@ -121,6 +127,7 @@
               <button type="button" data-cmd="experience">experience</button>
               <button type="button" data-cmd="contact">contact</button>
               <button type="button" data-cmd="help">help</button>
+              <button type="button" class="chip-ctf" data-cmd="ctf">ctf</button>
             </div>
           </div>
         </div>
@@ -153,107 +160,139 @@
         <p class="section-label reveal"><span class="t-prompt">chris@sec:~$</span> ls projects/</p>
         <h2 class="section-title reveal">Projects</h2>
 
-        <!-- SafeBuyr -->
-        <article class="case glow reveal">
-          <div class="case-text">
-            <div class="case-meta"><span class="case-no">01</span><span>Dec 2025 – Jan 2026</span></div>
-            <h3 class="case-name">SafeBuyr E-commerce Security Platform</h3>
-            <div class="case-stack">Python · Flask · Docker · GitHub Actions</div>
-            <ul class="case-bullets">
-              <li>Built an 8-phase automated security scanner for a live Flask/Docker e-commerce app that identified and fixed 6 OWASP Top 10 vulnerability classes, reducing risk score from 37/100 to 2/100.</li>
-              <li>Proved each vulnerability was exploitable before fixing it, then verified each fix held, producing an audit trail across SQL injection, XSS, CSRF, session management, input validation, and password storage.</li>
-              <li>Embedded all 6 checks into GitHub Actions so no deployment passes without clearing every test, enforcing encrypted password storage, SQL injection prevention, and CSRF protection at the CI layer.</li>
-            </ul>
-            <a class="case-link" href="https://github.com/ChrisCortesSanchez/SafeBuyr" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-          </div>
-          <div class="case-visual" data-visual="safebuyr" aria-hidden="true">
-            <div class="viz-title">risk score</div>
-            <div class="risk">
-              <div class="risk-row">
-                <span class="risk-key">before</span>
-                <div class="risk-track"><div class="risk-fill before"></div></div>
-                <span class="risk-val bad">37</span>
-              </div>
-              <div class="risk-row">
-                <span class="risk-key">after</span>
-                <div class="risk-track"><div class="risk-fill after"></div></div>
-                <span class="risk-val good">2</span>
-              </div>
-            </div>
-            <div class="viz-title">vulnerability classes</div>
-            <ul class="vulns">
-              <li class="fixed">SQL injection</li>
-              <li class="fixed">XSS</li>
-              <li class="fixed">CSRF</li>
-              <li class="fixed">Session management</li>
-              <li class="fixed">Input validation</li>
-              <li class="fixed">Password storage</li>
-            </ul>
-          </div>
-        </article>
+        <div class="proj-carousel">
+          <div class="proj-grid" id="proj-grid">
 
-        <!-- AWS CSPM -->
-        <article class="case glow reveal">
-          <div class="case-text">
-            <div class="case-meta"><span class="case-no">02</span><span>Mar 2026</span></div>
-            <h3 class="case-name">AWS Cloud Security Posture Management (CSPM) Tool</h3>
-            <div class="case-stack">Python · AWS · boto3 · GitHub Actions</div>
-            <ul class="case-bullets">
-              <li>Built a CSPM tool that checks 26 CIS Benchmark v1.5.0 controls across AWS (IAM, S3, CloudTrail, EC2, password policy) and generates a prioritized remediation report, replacing manual configuration review.</li>
-              <li>Caught 4 real security gaps in a live AWS account, including disabled audit logging and a password policy below industry minimums, using a 0-100 risk score to prioritize fixes.</li>
-              <li>Verified every update against 36 moto-mocked test cases in CI without a live cloud environment, keeping credentials out of the pipeline while maintaining full coverage on every push.</li>
-            </ul>
-            <a class="case-link" href="https://github.com/ChrisCortesSanchez/AWS-CSPM" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-          </div>
-          <div class="case-visual" data-visual="cspm" aria-hidden="true">
-            <div class="viz-title">cis benchmark v1.5.0 scan</div>
-            <div class="controls">
-              <i class="on"></i><i class="on"></i><i class="on"></i><i class="on flag"></i><i class="on"></i><i class="on"></i><i class="on"></i>
-              <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on flag"></i><i class="on"></i><i class="on"></i>
-              <i class="on"></i><i class="on flag"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
-              <i class="on"></i><i class="on"></i><i class="on flag"></i><i class="on"></i><i class="on"></i>
-            </div>
-            <div class="viz-legend">
-              <span><b class="k-cyan">26</b> controls checked</span>
-              <span><b class="k-red">4</b> gaps caught live</span>
-              <span><b class="k-green">36</b> mocked tests in CI</span>
-            </div>
-            <div class="viz-scope">IAM · S3 · CloudTrail · EC2 · password policy</div>
-          </div>
-        </article>
+            <!-- SafeBuyr -->
+            <article class="proj-card glow reveal">
+              <div class="proj-tab">
+                <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                <span class="proj-file">~/SafeBuyr</span>
+                <span class="proj-no">01</span>
+              </div>
+              <div class="proj-readout" data-visual="safebuyr" aria-hidden="true">
+                <div class="viz-title">risk score</div>
+                <div class="risk">
+                  <div class="risk-row">
+                    <span class="risk-key">before</span>
+                    <div class="risk-track"><div class="risk-fill before"></div></div>
+                    <span class="risk-val bad">37</span>
+                  </div>
+                  <div class="risk-row">
+                    <span class="risk-key">after</span>
+                    <div class="risk-track"><div class="risk-fill after"></div></div>
+                    <span class="risk-val good">2</span>
+                  </div>
+                </div>
+                <ul class="vulns">
+                  <li class="fixed">SQLi</li>
+                  <li class="fixed">XSS</li>
+                  <li class="fixed">CSRF</li>
+                  <li class="fixed">Sessions</li>
+                  <li class="fixed">Input</li>
+                  <li class="fixed">Passwords</li>
+                </ul>
+              </div>
+              <div class="proj-body">
+                <div class="proj-meta">Dec 2025 – Jan 2026</div>
+                <h3 class="proj-name">SafeBuyr E-commerce Security Platform</h3>
+                <ul class="proj-stack"><li>Python</li><li>Flask</li><li>Docker</li><li>GitHub Actions</li></ul>
+                <ul class="case-bullets">
+                  <li>Built an 8-phase automated security scanner for a live Flask/Docker e-commerce app that identified and fixed 6 OWASP Top 10 vulnerability classes, reducing risk score from 37/100 to 2/100.</li>
+                  <li>Proved each vulnerability was exploitable before fixing it, then verified each fix held, producing an audit trail across SQL injection, XSS, CSRF, session management, input validation, and password storage.</li>
+                  <li>Embedded all 6 checks into GitHub Actions so no deployment passes without clearing every test, enforcing encrypted password storage, SQL injection prevention, and CSRF protection at the CI layer.</li>
+                </ul>
+              </div>
+              <div class="proj-actions">
+                <button class="btn-clone" type="button" data-clone="https://github.com/ChrisCortesSanchez/SafeBuyr.git" hidden>$ git clone</button>
+                <a class="case-link" href="https://github.com/ChrisCortesSanchez/SafeBuyr" target="_blank" rel="noopener noreferrer">View repo →</a>
+              </div>
+            </article>
 
-        <!-- Honeypot -->
-        <article class="case glow reveal">
-          <div class="case-text">
-            <div class="case-meta"><span class="case-no">03</span><span>Mar 2026</span></div>
-            <h3 class="case-name">Honeypot Threat Intelligence Pipeline</h3>
-            <div class="case-stack">Python · Elasticsearch · DigitalOcean</div>
-            <ul class="case-bullets">
-              <li>Deployed a multi-sensor honeypot and built a pipeline that analyzed 193,139 real attack events and identified two active threat campaigns without manual triage: a Solana credential harvesting operation and a Mirai-variant botnet.</li>
-              <li>Logged attacks from 6,713 unique IPs across Cowrie (SSH), Dionaea (malware), and Honeytrap (service emulation) sensors, producing structured threat reports a security team could act on directly.</li>
-              <li>Pinpointed Netherlands-based VPS infrastructure as the source of 37% of observed attacks, catalogued 62,201 distinct malware samples, and grouped attacker activity into 8 clusters, surfaced in HTML and JSON reports.</li>
-            </ul>
-            <a class="case-link" href="https://github.com/ChrisCortesSanchez/Tpot" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+            <!-- AWS CSPM -->
+            <article class="proj-card glow reveal">
+              <div class="proj-tab">
+                <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                <span class="proj-file">~/AWS-CSPM</span>
+                <span class="proj-no">02</span>
+              </div>
+              <div class="proj-readout" data-visual="cspm" aria-hidden="true">
+                <div class="viz-title">cis benchmark v1.5.0 scan</div>
+                <div class="controls">
+                  <i class="on"></i><i class="on"></i><i class="on"></i><i class="on flag"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on flag"></i><i class="on"></i>
+                  <i class="on"></i><i class="on"></i><i class="on flag"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on flag"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+                </div>
+                <div class="viz-legend">
+                  <span><b class="k-cyan">26</b> controls</span>
+                  <span><b class="k-red">4</b> live gaps</span>
+                  <span><b class="k-green">36</b> CI tests</span>
+                </div>
+              </div>
+              <div class="proj-body">
+                <div class="proj-meta">Mar 2026</div>
+                <h3 class="proj-name">AWS Cloud Security Posture Management (CSPM) Tool</h3>
+                <ul class="proj-stack"><li>Python</li><li>AWS</li><li>boto3</li><li>GitHub Actions</li></ul>
+                <ul class="case-bullets">
+                  <li>Built a CSPM tool that checks 26 CIS Benchmark v1.5.0 controls across AWS (IAM, S3, CloudTrail, EC2, password policy) and generates a prioritized remediation report, replacing manual configuration review.</li>
+                  <li>Caught 4 real security gaps in a live AWS account, including disabled audit logging and a password policy below industry minimums, using a 0-100 risk score to prioritize fixes.</li>
+                  <li>Verified every update against 36 moto-mocked test cases in CI without a live cloud environment, keeping credentials out of the pipeline while maintaining full coverage on every push.</li>
+                </ul>
+              </div>
+              <div class="proj-actions">
+                <button class="btn-clone" type="button" data-clone="https://github.com/ChrisCortesSanchez/AWS-CSPM.git" hidden>$ git clone</button>
+                <a class="case-link" href="https://github.com/ChrisCortesSanchez/AWS-CSPM" target="_blank" rel="noopener noreferrer">View repo →</a>
+              </div>
+            </article>
+
+            <!-- Honeypot -->
+            <article class="proj-card glow reveal">
+              <div class="proj-tab">
+                <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                <span class="proj-file">~/Tpot</span>
+                <span class="proj-no">03</span>
+              </div>
+              <div class="proj-readout" data-visual="honeypot" aria-hidden="true">
+                <div class="viz-title">capture summary</div>
+                <div class="intel">
+                  <div><b data-count="193139">193,139</b><span>attack events</span></div>
+                  <div><b data-count="6713">6,713</b><span>unique IPs</span></div>
+                  <div><b data-count="62201">62,201</b><span>malware samples</span></div>
+                  <div><b data-count="8">8</b><span>attacker clusters</span></div>
+                </div>
+              </div>
+              <div class="proj-body">
+                <div class="proj-meta">Mar 2026</div>
+                <h3 class="proj-name">Honeypot Threat Intelligence Pipeline</h3>
+                <ul class="proj-stack"><li>Python</li><li>Elasticsearch</li><li>DigitalOcean</li></ul>
+                <ul class="case-bullets">
+                  <li>Deployed a multi-sensor honeypot and built a pipeline that analyzed 193,139 real attack events and identified two active threat campaigns without manual triage: a Solana credential harvesting operation and a Mirai-variant botnet.</li>
+                  <li>Logged attacks from 6,713 unique IPs across Cowrie (SSH), Dionaea (malware), and Honeytrap (service emulation) sensors, producing structured threat reports a security team could act on directly.</li>
+                  <li>Pinpointed Netherlands-based VPS infrastructure as the source of 37% of observed attacks, catalogued 62,201 distinct malware samples, and grouped attacker activity into 8 clusters, surfaced in HTML and JSON reports.</li>
+                </ul>
+              </div>
+              <div class="proj-actions">
+                <button class="btn-clone" type="button" data-clone="https://github.com/ChrisCortesSanchez/Tpot.git" hidden>$ git clone</button>
+                <a class="case-link" href="https://github.com/ChrisCortesSanchez/Tpot" target="_blank" rel="noopener noreferrer">View repo →</a>
+              </div>
+            </article>
+
           </div>
-          <div class="case-visual" data-visual="honeypot" aria-hidden="true">
-            <div class="viz-title">capture summary</div>
-            <div class="intel">
-              <div><b data-count="193139">193,139</b><span>attack events</span></div>
-              <div><b data-count="6713">6,713</b><span>unique IPs</span></div>
-              <div><b data-count="62201">62,201</b><span>malware samples</span></div>
-              <div><b data-count="8">8</b><span>attacker clusters</span></div>
-            </div>
-            <div class="viz-title">top source</div>
-            <div class="origin">
-              <div class="origin-track"><div class="origin-fill"></div></div>
-              <div class="origin-label"><b>37%</b> Netherlands-based VPS infrastructure</div>
-            </div>
-            <ul class="campaigns">
-              <li>Solana credential harvesting</li>
-              <li>Mirai-variant botnet</li>
-            </ul>
+          <div class="proj-controls" aria-label="Project carousel controls">
+            <button class="car-nav" type="button" data-dir="-1" aria-label="Previous project">‹</button>
+            <div class="car-dots" id="proj-dots"></div>
+            <button class="car-nav" type="button" data-dir="1" aria-label="Next project">›</button>
           </div>
-        </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WRITEUPS (shown by script.js once the blog has posts) ── -->
+    <section id="writeups" data-needs-posts hidden>
+      <div class="container">
+        <p class="section-label"><span class="t-prompt">chris@sec:~$</span> ls -t writeups/ | head -3</p>
+        <h2 class="section-title">Latest Writeups</h2>
+        <div class="post-grid" id="writeups-list"></div>
+        <a class="case-link" href="/blog/">All writeups →</a>
       </div>
     </section>
 
@@ -263,19 +302,51 @@
         <p class="section-label reveal"><span class="t-prompt">chris@sec:~$</span> cat experience.log</p>
         <h2 class="section-title reveal">Experience</h2>
 
-        <div class="exp-card glow reveal">
-          <div class="exp-header">
-            <div>
-              <div class="exp-title">Peer Tutor</div>
-              <div class="exp-company">NYU Opportunity Programs · Brooklyn, NY</div>
+        <div class="xp reveal" id="xp" tabindex="-1">
+          <button class="car-nav xp-arrow" type="button" data-dir="-1" aria-label="Previous role" hidden>‹</button>
+          <div class="xp-viewport">
+            <div class="xp-track">
+
+              <article class="xp-card">
+                <div class="xp-head">
+                  <div class="xp-logo" aria-hidden="true">OP</div>
+                  <div>
+                    <div class="xp-date">Jul 2023 – May 2026</div>
+                    <h3 class="xp-org">NYU Opportunity Programs</h3>
+                    <div class="xp-role">Peer Tutor</div>
+                    <div class="xp-loc">Brooklyn, NY</div>
+                  </div>
+                </div>
+                <ul class="exp-bullets">
+                  <li>Achieved a 100% course pass rate across 20+ students over multiple semesters by delivering individualized Python, Precalculus, and Calculus tutoring with targeted debugging walkthroughs.</li>
+                  <li>Translated complex programming defects into structured root-cause analyses, developing written clarity directly applicable to vulnerability disclosure reports and security incident documentation.</li>
+                  <li>Designed 50+ practice exercises across Python debugging and mathematical problem-solving, applying iterative feedback to identify and close individual skill gaps.</li>
+                </ul>
+                <div class="xp-tags"><span>Python</span><span>Debugging</span><span>Root-cause analysis</span><span>Technical writing</span><span>Calculus</span></div>
+              </article>
+
+              <article class="xp-card">
+                <div class="xp-head">
+                  <div class="xp-logo" aria-hidden="true">SH</div>
+                  <div>
+                    <div class="xp-date">Jan 2026 – May 2026</div>
+                    <h3 class="xp-org">SHPE NYU Tandon</h3>
+                    <div class="xp-role">External Relations Committee</div>
+                    <div class="xp-loc">Brooklyn, NY</div>
+                  </div>
+                </div>
+                <ul class="exp-bullets">
+                  <li>Contacted about 15 companies to build the chapter's first external relations function.</li>
+                  <li>Secured Turner Construction for a resume workshop for chapter members.</li>
+                  <li>Organized a joint event at Columbia drawing 20–30 members.</li>
+                </ul>
+                <div class="xp-tags"><span>Corporate outreach</span><span>Partnerships</span><span>Event planning</span></div>
+              </article>
+
             </div>
-            <div class="exp-date">Jul 2023 – May 2026</div>
           </div>
-          <ul class="exp-bullets">
-            <li>Achieved a 100% course pass rate across 20+ students over multiple semesters by delivering individualized Python, Precalculus, and Calculus tutoring with targeted debugging walkthroughs.</li>
-            <li>Translated complex programming defects into structured root-cause analyses, developing written clarity directly applicable to vulnerability disclosure reports and security incident documentation.</li>
-            <li>Designed 50+ practice exercises across Python debugging and mathematical problem-solving, applying iterative feedback to identify and close individual skill gaps.</li>
-          </ul>
+          <button class="car-nav xp-arrow" type="button" data-dir="1" aria-label="Next role" hidden>›</button>
+          <div class="car-dots xp-dots" id="xp-dots"></div>
         </div>
       </div>
     </section>
@@ -340,39 +411,114 @@
     <section id="background">
       <div class="container">
         <p class="section-label reveal"><span class="t-prompt">chris@sec:~$</span> cat background.md</p>
-        <h2 class="section-title reveal">Education, Certs &amp; Community</h2>
+        <h2 class="section-title reveal">Education, Certs &amp; Organizations</h2>
 
         <div class="bg-cards">
-          <div class="info-card glow reveal">
-            <div class="info-kicker">Education</div>
-            <div class="info-title">New York University Tandon School of Engineering</div>
-            <div class="info-sub">B.S. in Computer Science · Minor in Cybersecurity and Mathematics</div>
-            <div class="info-date">May 2026 · Brooklyn, NY</div>
-            <p class="info-body"><span class="info-key">Relevant coursework:</span> Application Security, Offensive Security, Network Security, Operating Systems</p>
+          <div class="info-card edu-card glow reveal">
+            <div class="edu-head">
+              <div class="edu-logo" aria-hidden="true">NYU</div>
+              <div>
+                <div class="edu-label">// May 2026</div>
+                <div class="info-title">New York University, Tandon School of Engineering</div>
+                <div class="info-sub">Bachelor of Science in Computer Science · Minor in Cybersecurity and Mathematics</div>
+                <div class="info-date">Brooklyn, NY</div>
+              </div>
+            </div>
+
+            <div class="edu-group">
+              <div class="edu-label">// coursework</div>
+              <ul class="edu-tiles cols-2">
+                <li>Application Security</li>
+                <li>Offensive Security</li>
+                <li>Computer Security</li>
+                <li>Network Security</li>
+                <li>Computer Networks</li>
+                <li>Operating Systems</li>
+                <li>Databases</li>
+              </ul>
+            </div>
+
+            <div class="edu-group">
+              <div class="edu-label">// organizations</div>
+              <ul class="edu-tiles cols-3 orgs">
+                <li>NYU Higher Education Opportunity Program (HEOP)</li>
+                <li>Society of Hispanic Professional Engineers (SHPE)<span>NYU Tandon · External Relations Committee, Jan–May 2026</span></li>
+                <li>Cyversity</li>
+                <li class="next">Raíces Cyber<span>getting involved</span></li>
+                <li class="next">DEF CON NYC<span>getting involved</span></li>
+              </ul>
+            </div>
           </div>
 
-          <div class="info-card cert glow reveal">
-            <div class="info-kicker">Certification</div>
-            <div class="info-title">CompTIA Security+</div>
-            <div class="info-sub">SY0-701</div>
-            <div class="info-date">Issued June 2026</div>
-            <div class="cert-status">Active</div>
+          <div class="bg-side">
+            <div class="info-card cert glow reveal">
+              <div class="info-kicker">Certifications</div>
+              <div class="cert-item">
+                <div class="info-title">CompTIA Security+</div>
+                <div class="info-sub">SY0-701</div>
+                <div class="info-date">Issued June 2026</div>
+                <div class="cert-status">Active</div>
+              </div>
+              <div class="cert-item">
+                <div class="info-title">CompTIA Network+</div>
+                <div class="info-sub">N10-009</div>
+                <div class="info-date">Currently studying</div>
+                <div class="cert-status progress">In progress</div>
+              </div>
+            </div>
+
+            <div class="info-card glow reveal">
+              <div class="info-kicker">CTF Competitions</div>
+              <ul class="info-list">
+                <li>SHPE 2025 National Convention Cybersecurity Challenge <span class="place">8th place</span></li>
+                <li>Buckeye CTF</li>
+                <li>NYU Offensive Security Weekly Challenges</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── OFF THE CLOCK ── -->
+    <section id="interests">
+      <div class="container">
+        <p class="section-label reveal"><span class="t-prompt">chris@sec:~$</span> cat interests.txt</p>
+        <h2 class="section-title reveal">Off the Clock</h2>
+
+        <div class="interests-grid">
+          <div class="tile tile-puzzle glow reveal">
+            <div class="tile-kicker">Puzzles</div>
+            <p class="tile-body">
+              Give me a locked box and no instructions. It's the same itch that got me into CTFs,
+              so I built one into this site: five flags are hidden around it.
+            </p>
+            <div class="tile-actions">
+              <button class="btn btn-ghost" type="button" data-run="ctf">Start the hunt</button>
+              <span class="ctf-progress" id="ctf-progress" hidden></span>
+            </div>
           </div>
 
-          <div class="info-card glow reveal">
-            <div class="info-kicker">CTF Competitions</div>
-            <ul class="info-list">
-              <li>SHPE 2025 National Convention Cybersecurity Challenge <span class="place">8th place</span></li>
-              <li>Buckeye CTF</li>
-              <li>NYU Offensive Security Weekly Challenges</li>
-            </ul>
+          <div class="tile tile-lang glow reveal">
+            <div class="tile-kicker">Cultures &amp; languages</div>
+            <div class="hello" aria-hidden="true"><span id="hello-world">hello, world</span></div>
+            <p class="tile-body">Learning how other people say things, and why they say them that way.</p>
           </div>
 
-          <div class="info-card glow reveal">
-            <div class="info-kicker">Community</div>
-            <div class="info-title">SHPE NYU Tandon, External Relations Committee</div>
-            <div class="info-date">Jan 2026 – May 2026</div>
-            <p class="info-body">Contacted about 15 companies to build the chapter's first external relations function; secured Turner Construction for a resume workshop and organized a joint event at Columbia drawing 20–30 members.</p>
+          <div class="tile tile-soccer glow reveal">
+            <div class="tile-kicker">Soccer</div>
+            <p class="tile-body">Most of the game happens off the ball. I like watching for it.</p>
+          </div>
+
+          <div class="tile tile-hoops glow reveal">
+            <div class="tile-kicker">Basketball</div>
+            <p class="tile-body">Read the defense, find the gap, take the shot.</p>
+          </div>
+
+          <div class="tile tile-games glow reveal">
+            <div class="tile-kicker">Video games</div>
+            <p class="tile-body">I still check every wall for a hidden room. Some old codes still work, too.</p>
+            <div class="keys" aria-hidden="true"><kbd>↑</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd><kbd>←</kbd><kbd>→</kbd><kbd>B</kbd><kbd>A</kbd></div>
           </div>
         </div>
       </div>
@@ -415,8 +561,8 @@
   <footer>
     <p>All rights reserved. This website is for educational use only. Content may not be reproduced or distributed for commercial purposes.</p>
     <p>
-      <a href="https://chriscortessanchez.github.io/">Chris's Portfolio</a> © 2026 by
-      <a href="https://chriscortessanchez.github.io/">Christopher Cortes-Sanchez</a> is licensed under
+      <a href="https://chriscortessanchez.com/">Chris's Portfolio</a> © 2026 by
+      <a href="https://chriscortessanchez.com/">Christopher Cortes-Sanchez</a> is licensed under
       <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-ND 4.0</a>
       <img class="cc-icon" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" /><img class="cc-icon" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" /><img class="cc-icon" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" /><img class="cc-icon" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="" />
     </p>

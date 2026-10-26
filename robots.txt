@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /backup/
+
+# Old backups live in /backup/. Nothing interesting in /backup/flag.txt, promise.
